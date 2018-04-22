@@ -97,3 +97,14 @@ CREATE TABLE FACILITIES(
 	PRIMARY KEY(FacID),
 	foreign key(contact_point) references staff(Staff_id)
 );
+
+CREATE TABLE FacilityBooking(
+	User_id VARCHAR(6),
+	Room_id VARCHAR(6),
+	FacID VARCHAR(6),
+	BookedFrom VARCHAR(10),
+	BookedTo VARCHAR(10),
+	FOREIGN KEY(User_id) references Users(User_id),
+	FOREIGN KEY(Room_id) references Rooms(Room_id),
+	FOREIGN KEY(FacID) references FACILITIES(FacID)
+);
