@@ -76,3 +76,24 @@ CREATE TABLE BOOKING_ITEM(
 	foreign key(Booking_id) references BOOKING(Booking_id),
 	foreign key(Room_id) references Rooms(Room_id)
 );
+
+CREATE TABLE ATTRACTIONS(
+	AttractionID VARCHAR(6),
+	IMGlink varchar(50),
+	Name varchar(50),
+	Address varchar(50),
+	Url Varchar(50),
+	Primary Key(AttractionID)
+	
+);
+
+CREATE TABLE FACILITIES(
+	FacID VARCHAR(6),
+	Name VARCHAR(30),
+	availFrom VARCHAR(10),
+	availTo VARCHAR(10),
+	Contact_Point VARCHAR(6),
+	amt_free INT(2),
+	PRIMARY KEY(FacID),
+	foreign key(contact_point) references staff(Staff_id)
+);
