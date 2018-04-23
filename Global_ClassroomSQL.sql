@@ -2,12 +2,12 @@
 
 
 CREATE Table Users(
-	User_id VARCHAR(6),
-	UName VARCHAR(20),
-	Password VARCHAR(20),
+	User_id VARCHAR(6) NOT NULL,
+	UName VARCHAR(20) UNIQUE,
+	Password VARCHAR(20) NOT NULL,
 	Phone VARCHAR(10),
-	Email VARCHAR(20),
-	IsTemp VARCHAR(2),
+	Email VARCHAR(20) UNIQUE check(Email LIKE "%@%"),
+	IsTemp VARCHAR(2) NOT NULL,
 	PRIMARY Key(User_id)
 
 );
@@ -22,12 +22,12 @@ CREATE TABLE Staff(
 
 CREATE TABLE Rooms(
 	Room_id VARCHAR(6),
-	Occupancy VARCHAR(2),
-	Room_Size VARCHAR(10),
+	Occupancy VARCHAR(2) check(Occupancy LIKE "y" or Occupancy like "n"),
+	Room_Size VARCHAR(10) check(Room_Size IN("S","D","F")),
 	Description VARCHAR(100),
 	Room_name VARCHAR(20),
 	Rate DECIMAL(4,2),
-	img VARCHAR(50),
+	img VARCHAR(50) check(img IN("%.jpg","%.gif","%.mpg","%.png")),
 	Price DECIMAL(6,2),
 	Primary key(Room_id)
 );
