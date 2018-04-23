@@ -35,11 +35,11 @@ CREATE TABLE Rooms(
 CREATE TABLE Address(
 
 	Line_1 VARCHAR(20) NOT NULL,
-	Line_2 VARCHAR(20),
+	Line_2 VARCHAR(20) NOT NULL,
 	Line_3 VARCHAR(20),
-	city VARCHAR(15),
-	Ad_State VARCHAR(20),
-	Post_code VARCHAR(20),
+	city VARCHAR(15) NOT NULL,
+	Ad_State VARCHAR(20)NOT NULL,
+	Post_code VARCHAR(20)NOT NULL,
 	Country VARCHAR(15),
 	UserId VARCHAR(6),
 	foreign key(UserId) references Users(user_id)
@@ -49,25 +49,27 @@ CREATE TABLE BOOKING(
 	Booking_id VARCHAR(6),
 	Total_Adults INTEGER(2),
 	Total_Children INTEGER(2),
-	Check_in VARCHAR(10),
-	Check_out VARCHAR(10),
+	Check_in VARCHAR(10) NOT NULL,
+	Check_out VARCHAR(10) NOT NULL,
 	Notes VARCHAR(50),
 	User_id VARCHAR(6),
 	Total_Cost DECIMAL(6,2),
-	Payment_Type VARCHAR(10),
-	Payment_Status VARCHAR(10),
+	Payment_Type VARCHAR(10) check Payment_Type in("Card","Cash","Online"),
+	Payment_Status VARCHAR(10) check Payment_Status in("paid","unpaid"),
 	primary key(Booking_id)
 );
 
 CREATE TABLE BILLING (
 	Transaction_id VARCHAR(6),
+	Payment_date VARCHAR(10),
 	Amt DEC(5,2),
 	Booking_id VARCHAR(6),
-	Staff_id VARCHAR(6),
+	Staff_id VARCHAR(6) NOT NULL,
+	User_id VARCHAR(6) NOT NULL
 	primary key(Transaction_id),
 	foreign key(Booking_id) references BOOKING(Booking_id),
 	foreign key(Staff_id) references STAFF(Staff_id)
-	
+	foreign key(User_id) references USERS(User_id)
 );
 
 CREATE TABLE BOOKING_ITEM(
@@ -79,10 +81,10 @@ CREATE TABLE BOOKING_ITEM(
 
 CREATE TABLE ATTRACTIONS(
 	AttractionID VARCHAR(6),
-	IMGlink varchar(50),
+	IMGlink varchar(50) check(IMGlink IN("%.jpg","%.gif","%.mpg","%.png")),
 	Name varchar(50),
 	Address varchar(50),
-	Url Varchar(50),
+	Url Varchar(50) UNIQUE check URL like "http://%",
 	Primary Key(AttractionID)
 	
 );
@@ -93,7 +95,7 @@ CREATE TABLE FACILITIES(
 	availFrom VARCHAR(10),
 	availTo VARCHAR(10),
 	Contact_Point VARCHAR(6),
-	amt_free INT(2),
+	amt_free INT(2) NOT NULL,
 	PRIMARY KEY(FacID),
 	foreign key(contact_point) references staff(Staff_id)
 );
@@ -102,8 +104,8 @@ CREATE TABLE FacilityBooking(
 	User_id VARCHAR(6),
 	Room_id VARCHAR(6),
 	FacID VARCHAR(6),
-	BookedFrom VARCHAR(10),
-	BookedTo VARCHAR(10),
+	BookedFrom VARCHAR(10) NOT NULL,
+	BookedTo VARCHAR(10) NOT NULL,
 	FOREIGN KEY(User_id) references Users(User_id),
 	FOREIGN KEY(Room_id) references Rooms(Room_id),
 	FOREIGN KEY(FacID) references FACILITIES(FacID)
