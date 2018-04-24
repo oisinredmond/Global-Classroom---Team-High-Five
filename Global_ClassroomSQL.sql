@@ -22,8 +22,8 @@ CREATE TABLE Staff(
 
 CREATE TABLE Rooms(
 	Room_id VARCHAR(6),
-	Occupancy VARCHAR(2) check(Occupancy LIKE "y" or Occupancy like "n"),
-	Room_Size VARCHAR(10) check(Room_Size IN("S","D","F")),
+	Occupancy VARCHAR(2) check(Occupancy LIKE "Y" or Occupancy like "N"),
+	Room_Size VARCHAR(10) check(Room_Size IN("Single","Deluxe","King Suite")),
 	Description VARCHAR(100),
 	Room_name VARCHAR(20),
 	Rate DECIMAL(4,2),
@@ -68,7 +68,7 @@ CREATE TABLE BILLING (
 	User_id VARCHAR(6) NOT NULL
 	primary key(Transaction_id),
 	foreign key(Booking_id) references BOOKING(Booking_id),
-	foreign key(Staff_id) references STAFF(Staff_id)
+	foreign key(Staff_id) references STAFF(Staff_id),
 	foreign key(User_id) references USERS(User_id)
 );
 
