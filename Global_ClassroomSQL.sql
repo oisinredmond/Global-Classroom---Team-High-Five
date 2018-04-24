@@ -68,7 +68,7 @@ CREATE TABLE BILLING (
 	User_id VARCHAR(6) NOT NULL
 	primary key(Transaction_id),
 	foreign key(Booking_id) references BOOKING(Booking_id),
-	foreign key(Staff_id) references STAFF(Staff_id)
+	foreign key(Staff_id) references STAFF(Staff_id),
 	foreign key(User_id) references USERS(User_id)
 );
 
