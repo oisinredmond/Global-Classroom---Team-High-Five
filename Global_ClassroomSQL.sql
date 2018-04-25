@@ -47,13 +47,15 @@ CREATE TABLE Address(
 
 CREATE TABLE BOOKING(
 	Booking_id VARCHAR(6),
+	Booking_date TIMESTAMP,
 	Total_Adults INTEGER(2),
 	Total_Children INTEGER(2),
-	Check_in VARCHAR(10) NOT NULL,
-	Check_out VARCHAR(10) NOT NULL,
+	Check_in DATE NOT NULL,
+	Check_out DATE NOT NULL,
 	Notes VARCHAR(50),
 	User_id VARCHAR(6),
 	Total_Cost DECIMAL(6,2),
+	deposit DEC(6,2)
 	Payment_Type VARCHAR(10) check Payment_Type in("Card","Cash","Online"),
 	Payment_Status VARCHAR(10) check Payment_Status in("paid","unpaid"),
 	primary key(Booking_id)
