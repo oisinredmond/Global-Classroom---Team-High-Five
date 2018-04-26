@@ -17,12 +17,13 @@
   <?php
 	include 'dbconnect.php';
 
-	$room_id = $_GET['var'];
+	if(isset($_GET['room_id'])){
+		$room_id = $_GET['room_id'];
+	}	
+	$query = "SELECT * FROM rooms WHERE Room_id = '$room_id'";
 	
-	$query = "SELECT * FROM rooms WHERE Room_id = ' $room_id '";
-	
-	$result = mysqli_query($dbconnect,$query);
-	$row = mysqli_fetch_assoc($result);
+	$re = $dbConnect->query($query);
+	$row = mysqli_fetch_assoc($re);
 	
 	?>
   

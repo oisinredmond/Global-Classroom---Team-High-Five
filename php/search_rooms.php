@@ -16,12 +16,6 @@
 </head>
 <body>
 
-	<div class="container">
-
-		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger"></strong> results were found for the search.</h2>
-
-	<section class="col-xs-12 col-sm-6 col-md-12">
 <?php
 
 $servername = "mysql.hostinger.kr";
@@ -65,7 +59,12 @@ if (!$dbConnect) {
 			 while ($row = $re->fetch_assoc()) {
 
 
-		    echo '<article class="search-result row">
+		    echo '<div class="container">
+				  <h1>Search Results</h1>
+				  <h2 class="lead"><strong class="text-danger"></strong> results were found for the search.</h2>
+
+				  <section class="col-xs-12 col-sm-6 col-md-12">
+				  <article class="search-result row">
 				  <div class="col-xs-12 col-sm-12 col-md-3">
 				  <class="thumbnail"><img src="../' . $row['img'] .'"/></a></div>
 				  <div class="col-xs-12 col-sm-12 col-md-2">';
@@ -80,8 +79,9 @@ if (!$dbConnect) {
 			     <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
 				 <h3><a href="#" title="">' . $row['Room_name'] . '</a></h3>
 				 <p>' . $row['Description'] . '</p>
-				 <form method="get">
-						 <input type="button" value="View Room" onClick="window.location="view_room.php?var="' . $row['Room_id']     . '">
+				 <form action="view_room.php">
+				   <input type="hidden" name="room_id" value="' . $row['Room_id'] . '">
+				   <input type="submit" value="View Room">
 				 </form>
 			     </div>
 			     <span class="clearfix border"></span>
