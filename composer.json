@@ -1,0 +1,14 @@
+{
+    "name": "JUHEE0625/juhees",
+    "description": "Example Application to Deploy On Hostinger",
+    "require": {
+        "slim/slim": "^2.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hostinger",
+            "email": "khkim3261738@gmail.com"
+        }
+    ]
+}
