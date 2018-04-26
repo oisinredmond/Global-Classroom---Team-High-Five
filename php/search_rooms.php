@@ -35,33 +35,30 @@ if (!$dbConnect) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-	if(isset($_POST['quantityAdults'])){
-		$quantityAdults = $_POST['quantityAdults'];
-	}
-	
-	if(isset($_POST['quantityChildren'])){
-		$quantityChildren = $_POST['quantityChildren'];
-	}
-	
-	if(isset($_POST['checkin'])){
-		$checkin = $_POST['checkin'];
-	}
-	
-	if(isset($_POST['checkout'])){
-		$checkout = $_POST['checkout'];
-	}
+			if(isset($_POST['quantityAdults'])){
+						$quantityAdults = $_POST['quantityAdults'];
+					}
 
-	$_SESSION['checkout'] = date('y-m-d', strtotime($_POST['checkout']));
-	$_SESSION['checkin'] = date('y-m-d', strtotime($_POST['checkin']));
+					if(isset($_POST['quantityChildren'])){
+						$quantityChildren = $_POST['quantityChildren'];
+					}
 
+					if(isset($_POST['checkin'])){
+						$checkin = $_POST['checkin'];
+					}
 
+					if(isset($_POST['checkout'])){
+						$checkout = $_POST['checkout'];
+					}
+					$_SESSION['checkout'] = date('y-m-d', strtotime($_POST['checkout']));
+					$_SESSION['checkin'] = date('y-m-d', strtotime($_POST['checkin']));
+					$datestart =  date('y-m-d', strtotime($_SESSION['checkin']));
+					$dateend =  date('y-m-d', strtotime($_SESSION['checkout']));
+					$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
+							SELECT room_id FROM bookings
+							where (check_in between '$datestart' AND '$dateend')OR
+						(check_out between '$dateend' AND '$datestart'))";
 
-	$datestart =  date('y-m-d', strtotime($_SESSION['checkin']));
-	$dateend =  date('y-m-d', strtotime($_SESSION['checkout']));
-	$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
-			SELECT room_id FROM bookings
-			where (check_in between '$datestart' AND '$dateend')OR
-		(check_out between '$dateend' AND '$datestart'))";
     
 				if($re = $dbConnect->query($query)){
 				   printf("Errormessage: %s\n", $dbConnect->error);
