@@ -83,7 +83,7 @@
 		}	
 	   
 			}	
-			esle
+			esle if($num_result==0)
 			{
 					echo "<p><b>Choose Your Room</b></p><hr class=\"line\">";
 			}
