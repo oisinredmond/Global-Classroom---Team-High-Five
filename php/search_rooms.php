@@ -56,33 +56,7 @@
 	
 	$resultset = mysqli_query($dbConnect,$query);
 	$num_results = mysqli_num_rows($resultset);
-			if($num_results>0) {
-				
-	    while ($row = mysqli_fetch_array($resultset) )
-	    {
-		    echo '<article class="search-result row">
-				  <div class="col-xs-12 col-sm-12 col-md-3">
-				  <class="thumbnail"><img src="../' . $row['img'] .'"/></a></div>
-				  <div class="col-xs-12 col-sm-12 col-md-2">';
-		
-		    echo '<ul class="meta-search">
-				  <li><i class="glyphicon glyphicon-user"></i> <span>' . $row['Room_Size'] . '</span></li>
-				  <li><i class="glyphicon glyphicon-tags"></i> <span>' . $row['Room_name'] . '</span></li>
-				  <li><i class="glyphicon glyphicon-euro"></i> <span>' . $row['Rate'] . '</span></li>
-			      </ul></div>';
-		
-		    echo '
-			     <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-				 <h3><a href="#" title="">' . $row['Room_name'] . '</a></h3>
-				 <p>' . $row['Description'] . '</p>
-				 <form method="get">
-				 <input type="button" value="View Room" onClick="window.location="view_room.php?var="' . $row['Room_id'] . '">
-				 </form>
-			     </div>
-			     <span class="clearfix border"></span>
-		        </article>';
-		}	
-			}	
+			
 	?>
 	  </div>
 	</section>
