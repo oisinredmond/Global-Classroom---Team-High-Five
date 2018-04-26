@@ -81,7 +81,7 @@ if (!$dbConnect) {
 				 <h3><a href="#" title="">' . $row['Room_name'] . '</a></h3>
 				 <p>' . $row['Description'] . '</p>
 				 <form method="get">
-				 <input type="button" value="View Room" onClick="window.location.href="view_room.php?var="' . $row['Room_id']      .  '">
+						 <input type="button" value="View Room" onClick="window.location="view_room.php?var="' . $row['Room_id']     . '">
 				 </form>
 			     </div>
 			     <span class="clearfix border"></span>
