@@ -21,7 +21,7 @@
 	
 	$query = "SELECT * FROM rooms WHERE Room_id = ' $room_id '";
 	
-	$result = mysqli_query($db,$query);
+	$result = mysqli_query($dbconnect,$query);
 	$row = mysqli_fetch_assoc($result);
 	
 	?>
