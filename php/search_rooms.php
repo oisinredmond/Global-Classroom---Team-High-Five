@@ -31,8 +31,9 @@
 			where (check_in between 2018-09-09 AND 2018-09-11)OR
 		(check_out between 2018-09-11 AND 2018-09-09))";
 
-
+ echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				if($re = $dbConnect->query($query)){
+					 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 			 while ($row = $re->fetch_assoc()) {
 
 
