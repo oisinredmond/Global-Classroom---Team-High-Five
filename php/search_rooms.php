@@ -32,7 +32,7 @@
 		(check_out between 2018-09-11 AND 2018-09-09))";
 
 
-				if($re = $dbconnect->query($query)){
+				if($re = $dbConnect->query($query)){
 			 while ($row = $re->fetch_assoc()) {
 
 
