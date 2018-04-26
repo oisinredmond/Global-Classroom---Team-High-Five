@@ -81,6 +81,9 @@
 		        </article>';
 		}	
 	}
+			else{
+				echo '<ul> There is no DATA</ul>;
+				}
 	?>
 	  </div>
 	</section>
