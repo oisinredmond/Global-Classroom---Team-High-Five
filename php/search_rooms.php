@@ -1,7 +1,4 @@
-<?php
-	
 
-?>
 			
 			
 <!DOCTYPE html>
@@ -29,30 +26,32 @@
 	<section class="col-xs-12 col-sm-6 col-md-12">
 	    <?php
 			include 'dbconnect.php';
-	
-	if(isset($_POST['quantityAdults'])){
-		$quantityAdults = $_POST['quantityAdults'];
+	$_SESSION['checkin'] = $_POST['checkin'];
+	$_SESSION['checkout'] = $_POST['checkout'];
+	$datestart =  date('y-m-d', strtotime($_SESSION['checkin']) );
+	$dateend =  date('y-m-d', strtotime($_SESSION['checkout']) );
+	if(isset($_POST["quantityAdults"])){
+		$_SESSION['$quantityAdults'] = $_POST['quantityAdults'];
 	}
 	
 	if(isset($_POST['quantityChildren'])){
-		$quantityChildren = $_POST['quantityChildren'];
+		$_SESSION['$quantityChildren'] = $_POST['quantityChildren'];
 	}
 	
 	if(isset($_POST['checkin'])){
-		$checkin = $_POST['checkin'];
+		$_SESSION['$checkin'] = $_POST['checkin'];
 	}
 	
 	if(isset($_POST['checkout'])){
-		$checkout = $_POST['checkout'];
+		$_SESSION['$checkout'] = $_POST['checkout'];
 	}
 	
-	$checkin = date('Y-m-d H:i:s', strtotime($checkin));
-	$checkout = date('Y-m-d H:i:s', strtotime($checkout));
+	
 	
 	$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
 			SELECT room_id FROM BOOKING
-			where (check_in between 2018-05-03 AND 2018-05-08)OR
-		(check_out between 2018-05-08 AND 2018-05-03))";
+			where (check_in between '$datestart' AND '$dateend')OR
+		(check_out between '$dateend' AND '$datestart'))";
 	
 	$resultset = mysqli_query($dbConnect,$query);
 	$num_results = mysqli_num_rows($resultset);
