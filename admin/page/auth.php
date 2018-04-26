@@ -10,7 +10,7 @@ $dbConnect = mysqli_connect($servername, $username, $password, $database);
 if (!$dbConnect) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$db = "u375181454_tempp";
+$db = "u375181454_hotel";
 $selected = mysqli_select_db($dbConnect,$db)
   or die("Could not select database");
 ?>
