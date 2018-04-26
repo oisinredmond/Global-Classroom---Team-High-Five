@@ -16,6 +16,6 @@ else
 {
 echo mysqli_error($link);
 session_destroy();
-header("location: index.htm");
+header("location: index.php");
 }
 ?>
