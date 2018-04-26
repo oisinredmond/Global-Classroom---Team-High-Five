@@ -21,7 +21,7 @@
 	<div class="container">
 	
 		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger"><?php echo $num_results ?></strong> results were found for the search.</h2>	
+		<h2 class="lead"><strong class="text-danger"></strong> results were found for the search.</h2>	
 
 	<section class="col-xs-12 col-sm-6 col-md-12">
 	    <?php
