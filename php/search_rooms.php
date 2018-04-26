@@ -57,7 +57,10 @@
 	$resultset = mysqli_query($dbConnect,$query);
 	$num_results = mysqli_num_rows($resultset);
 			if($num_results>0) {
-				
+				 while ($row = mysqli_fetch_array($resultset) )
+	    {
+		   
+		}	
 	   
 			}	
 	?>
