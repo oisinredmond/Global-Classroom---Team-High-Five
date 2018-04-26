@@ -56,12 +56,13 @@
 	
 	$resultset = mysqli_query($dbConnect,$query);
 	$num_results = mysqli_num_rows($resultset);
-			if($num_results>0) {
-				  echo '<article class="search-result row">
-				  <div class="col-xs-12 col-sm-12 col-md-3">
-				  <class="thumbnail"><img src="../' . $row['img'] .'"/></a></div>
-				  <div class="col-xs-12 col-sm-12 col-md-2">';
-				 while ($row = mysqli_fetch_array($resultset) )
+		if($num_results>0) {
+			  echo '<ul class="meta-search">
+				  <li><i class="glyphicon glyphicon-user">ttttttttttttt</i> <span></span></li>
+				  <li><i class="glyphicon glyphicon-tags"></i> <span></span></li>
+				  <li><i class="glyphicon glyphicon-euro"></i> <span></span></li>
+			      </ul></div>';
+		 while ($row = mysqli_fetch_array($resultset) )
 	    {
 		    echo '<article class="search-result row">
 				  <div class="col-xs-12 col-sm-12 col-md-3">
