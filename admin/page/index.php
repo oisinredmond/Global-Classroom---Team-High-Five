@@ -31,13 +31,13 @@
 
     <div class="container">
 
-      <form class="form-signin" role="form" action="./loginauth.php" method="post">
+      <form class="form-signin" role="form" action="loginauth.php" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="name" class="sr-only">Username</label>
         <input type="text" id="username" name="username"class="form-control" placeholder="Username" required autofocus>
         <label for="Password" class="sr-only">Password</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
       </form>
 
     </div> <!-- /container -->
