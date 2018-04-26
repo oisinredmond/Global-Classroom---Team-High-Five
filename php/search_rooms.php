@@ -1,30 +1,5 @@
 <?php
-	include 'dbconnect.php';
 	
-	if(isset($_POST['quantityAdults'])){
-		$quantityAdults = $_POST['quantityAdults'];
-	}
-	
-	if(isset($_POST['quantityChildren'])){
-		$quantityChildren = $_POST['quantityChildren'];
-	}
-	
-	if(isset($_POST['checkin'])){
-		$checkin = $_POST['checkin'];
-	}
-	
-	if(isset($_POST['checkout'])){
-		$checkout = $_POST['checkout'];
-	}
-	
-	$checkin = date('Y-m-d H:i:s', strtotime($checkin));
-	$checkout = date('Y-m-d H:i:s', strtotime($checkout));
-	
-	$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
-			SELECT room_id FROM BOOKING
-			where (check_in between 2018-05-03 AND 2018-05-08)OR
-		(check_out between 2018-05-08 AND 2018-05-03))";
-
 
 ?>
 			
@@ -53,12 +28,36 @@
 
 	<section class="col-xs-12 col-sm-6 col-md-12">
 	    <?php
-				
+			include 'dbconnect.php';
+	
+	if(isset($_POST['quantityAdults'])){
+		$quantityAdults = $_POST['quantityAdults'];
+	}
+	
+	if(isset($_POST['quantityChildren'])){
+		$quantityChildren = $_POST['quantityChildren'];
+	}
+	
+	if(isset($_POST['checkin'])){
+		$checkin = $_POST['checkin'];
+	}
+	
+	if(isset($_POST['checkout'])){
+		$checkout = $_POST['checkout'];
+	}
+	
+	$checkin = date('Y-m-d H:i:s', strtotime($checkin));
+	$checkout = date('Y-m-d H:i:s', strtotime($checkout));
+	
+	$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
+			SELECT room_id FROM BOOKING
+			where (check_in between 2018-05-03 AND 2018-05-08)OR
+		(check_out between 2018-05-08 AND 2018-05-03))";
+	
 	$resultset = mysqli_query($dbConnect,$query);
 	$num_results = mysqli_num_rows($resultset);
 			if($num_results>0) {
-				echo '<p>' dkjfkdjfkdjfdkdjfkfdk'</p>';
-			}
+				
 	    while ($row = mysqli_fetch_array($resultset) )
 	    {
 		    echo '<article class="search-result row">
@@ -83,7 +82,7 @@
 			     <span class="clearfix border"></span>
 		        </article>';
 		}	
-				
+			}	
 	?>
 	  </div>
 	</section>
