@@ -1,6 +1,6 @@
 <?php
 include './auth.php';
-$sql1="SELECT * from user where username = '".$_SESSION['username']."'  AND password = '".$_SESSION['password']."' " ;
+$sql1="SELECT * from staff where s_name = '".$_SESSION['username']."'  AND password = '".$_SESSION['password']."' " ;
 
 $re1 = $dbConnect->query($sql1);
 
