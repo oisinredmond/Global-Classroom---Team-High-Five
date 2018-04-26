@@ -55,7 +55,7 @@
 
 	<section class="col-xs-12 col-sm-6 col-md-12">
 	    <?php
-	if($num_results>0){
+	
 	    while ($row = mysqli_fetch_array($resultset) )
 	    {
 		    echo '<article class="search-result row">
@@ -80,10 +80,7 @@
 			     <span class="clearfix border"></span>
 		        </article>';
 		}	
-	}
-			else{
-				echo '<ul> There is no DATA</ul>;
-				}
+				
 	?>
 	  </div>
 	</section>
