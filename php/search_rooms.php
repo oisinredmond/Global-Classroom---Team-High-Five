@@ -38,7 +38,7 @@
 	<link rel="stylesheet" href="../css/normalize.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/resposnsive.css">
+	<link rel="stylesheet" href="../css/responsive.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
