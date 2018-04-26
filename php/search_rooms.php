@@ -20,10 +20,10 @@
 	$checkin = date('Y-m-d H:i:s', strtotime($checkin));
 	$checkout = date('Y-m-d H:i:s', strtotime($checkout));
 	
-	$query = "SELECT * FROM rooms WHERE room_id NOT IN (
-			SELECT room_id FROM booking
-			where (check_in between '$checkin' AND '$checkout')OR
-		(check_out between '$checkout' AND '$checkin'))";
+	$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
+			SELECT room_id FROM BOOKING
+			where (check_in between 2018-05-03 AND 2018-05-08)OR
+		(check_out between 2018-05-08 AND 2018-05-03))";
 			
 	$resultset = mysqli_query($dbConnect,$query);
 	$num_results = mysqli_num_rows($resultset);
