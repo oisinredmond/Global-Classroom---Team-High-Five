@@ -30,9 +30,9 @@
 			SELECT room_id FROM bookings
 			where (check_in between 2018-09-09 AND 2018-09-11)OR
 		(check_out between 2018-09-11 AND 2018-09-09))";
-    printf("Errormessage: %s\n", $dbConnect->error);
+    
 				if($re = $dbConnect->query($query)){
-				   
+				   printf("Errormessage: %s\n", $dbConnect->error);
 			 while ($row = $re->fetch_assoc()) {
 
 
