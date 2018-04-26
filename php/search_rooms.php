@@ -27,6 +27,7 @@
 			
 	$resultset = mysqli_query($dbConnect,$query);
 	$num_results = mysqli_num_rows($resultset);
+
 ?>
 			
 			
@@ -53,7 +54,8 @@
 		<h2 class="lead"><strong class="text-danger"><?php echo $num_results ?></strong> results were found for the search.</h2>	
 
 	<section class="col-xs-12 col-sm-6 col-md-12">
-	    <?php
+	    <?ph
+	if($num_results>0){
 	    while ($row = mysqli_fetch_array($resultset) )
 	    {
 		    echo '<article class="search-result row">
@@ -78,6 +80,7 @@
 			     <span class="clearfix border"></span>
 		        </article>';
 		}	
+	}
 	?>
 	  </div>
 	</section>
