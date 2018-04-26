@@ -1,5 +1,5 @@
 <?php
-	include 'dbConnect.php';
+	include 'dbconnect.php';
 	
 	if(isset($_POST['quantityAdults'])){
 		$quantityAdults = $_POST['quantityAdults'];
@@ -25,7 +25,7 @@
 			WHERE (check_in <= '$checkin' AND check_out >= '$checkout')
             OR ('$checkin' <= check_in AND '$checkout' >= check_out))";
 			
-	$resultset = mysqli_query($dbconnect,$query);
+	$resultset = mysqli_query($db,$query);
 	$num_results = mysqli_num_rows($resultset);
 ?>
 			
