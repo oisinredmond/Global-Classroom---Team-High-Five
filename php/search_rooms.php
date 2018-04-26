@@ -1,3 +1,38 @@
+<?php
+
+$servername = "mysql.hostinger.kr";
+$database = "u375181454_hotel";
+$username = "u375181454_juhee";
+$password = "dst1738";
+// Create connection
+$dbConnect = mysqli_connect($servername, $username, $password, $database);
+// Check connection
+if (!$dbConnect) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+	if(isset($_POST['quantityAdults'])){
+		$quantityAdults = $_POST['quantityAdults'];
+	}
+	
+	if(isset($_POST['quantityChildren'])){
+		$quantityChildren = $_POST['quantityChildren'];
+	}
+	
+	if(isset($_POST['checkin'])){
+		$checkin = $_POST['checkin'];
+	}
+	
+	if(isset($_POST['checkout'])){
+		$checkout = $_POST['checkout'];
+	}
+
+	$_SESSION['checkout'] = date('y-m-d', strtotime($_POST['checkout']));
+	$_SESSION['checkin'] = date('y-m-d', strtotime($_POST['checkin']));
+
+
+
+>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,22 +59,12 @@
 	    <?php
 
 		
-				$servername = "mysql.hostinger.kr";
-$database = "u375181454_hotel";
-$username = "u375181454_juhee";
-$password = "dst1738";
-// Create connection
-$dbConnect = mysqli_connect($servername, $username, $password, $database);
-// Check connection
-if (!$dbConnect) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-
+	$datestart =  date('y-m-d', strtotime($_SESSION['checkin']));
+	$dateend =  date('y-m-d', strtotime($_SESSION['checkout']));
 	$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
 			SELECT room_id FROM bookings
-			where (check_in between 2018-09-09 AND 2018-09-11)OR
-		(check_out between 2018-09-11 AND 2018-09-09))";
+			where (check_in between '$datestart' AND '$dateend')OR
+		(check_out between '$dateend' AND '$datestart'))";
     
 				if($re = $dbConnect->query($query)){
 				   printf("Errormessage: %s\n", $dbConnect->error);
