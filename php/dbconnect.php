@@ -1,7 +1,7 @@
 <?php
 $servername = "mysql.hostinger.kr";
 $database = "u375181454_hotel";
-$username = "u375181454_juhee0625";
+$username = "u375181454_juhee";
 $password = "dst1738";
 // Create connection
 $dbConnect = mysqli_connect($servername, $username, $password, $database);
