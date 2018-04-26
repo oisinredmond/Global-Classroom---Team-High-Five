@@ -83,6 +83,10 @@
 		}	
 	   
 			}	
+			esle
+			{
+					echo "<p><b>Choose Your Room</b></p><hr class=\"line\">";
+			}
 	?>
 	  </div>
 	</section>
