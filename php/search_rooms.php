@@ -48,7 +48,7 @@
 	
 	
 		$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
-			SELECT room_id FROM bookings
+			SELECT room_id FROM booking
 			where (check_in between 2018-09-09 AND 2018-09-11)OR
 		(check_out between 2018-09-11 AND 2018-09-09))";
 
