@@ -14,7 +14,7 @@ header('Refresh: 0;url=dashboard.php');
 }
 else
 {
-
+echo mysqli_error($link);
 session_destroy();
 header("location: index.htm");
 }
