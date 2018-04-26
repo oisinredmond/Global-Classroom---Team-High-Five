@@ -56,7 +56,10 @@
 	
 	$resultset = mysqli_query($dbConnect,$query);
 	$num_results = mysqli_num_rows($resultset);
-			
+			if($num_results>0) {
+				
+	   
+			}	
 	?>
 	  </div>
 	</section>
