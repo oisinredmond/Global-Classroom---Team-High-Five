@@ -1,38 +1,4 @@
-<?php
 
-$servername = "mysql.hostinger.kr";
-$database = "u375181454_hotel";
-$username = "u375181454_juhee";
-$password = "dst1738";
-// Create connection
-$dbConnect = mysqli_connect($servername, $username, $password, $database);
-// Check connection
-if (!$dbConnect) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-	if(isset($_POST['quantityAdults'])){
-		$quantityAdults = $_POST['quantityAdults'];
-	}
-	
-	if(isset($_POST['quantityChildren'])){
-		$quantityChildren = $_POST['quantityChildren'];
-	}
-	
-	if(isset($_POST['checkin'])){
-		$checkin = $_POST['checkin'];
-	}
-	
-	if(isset($_POST['checkout'])){
-		$checkout = $_POST['checkout'];
-	}
-
-	$_SESSION['checkout'] = date('y-m-d', strtotime($_POST['checkout']));
-	$_SESSION['checkin'] = date('y-m-d', strtotime($_POST['checkin']));
-
-
-
->
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,9 +22,9 @@ if (!$dbConnect) {
 		<h2 class="lead"><strong class="text-danger"></strong> results were found for the search.</h2>
 
 	<section class="col-xs-12 col-sm-6 col-md-12">
-	    <?php
+<?php
 
-		$servername = "mysql.hostinger.kr";
+$servername = "mysql.hostinger.kr";
 $database = "u375181454_hotel";
 $username = "u375181454_juhee";
 $password = "dst1738";
