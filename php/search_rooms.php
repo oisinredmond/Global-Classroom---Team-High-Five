@@ -47,22 +47,16 @@
 	}
 	
 	
-	
-	$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
-			SELECT room_id FROM BOOKING
-			where (check_in between '$datestart' AND '$dateend')OR
-		(check_out between '$dateend' AND '$datestart'))";
-	
-	$resultset = mysqli_query($dbConnect,$query);
-	$num_results = mysqli_num_rows($resultset);
-		if($num_results>0) {
-			  echo '<ul class="meta-search">
-				  <li><i class="glyphicon glyphicon-user">ttttttttttttt</i> <span></span></li>
-				  <li><i class="glyphicon glyphicon-tags"></i> <span></span></li>
-				  <li><i class="glyphicon glyphicon-euro"></i> <span></span></li>
-			      </ul></div>';
-		 while ($row = mysqli_fetch_array($resultset) )
-	    {
+		$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
+			SELECT room_id FROM bookings
+			where (check_in between 2018-09-09 AND 2018-09-11)OR
+		(check_out between 2018-09-11 AND 2018-09-09))";
+
+
+				if($re = $dbConnect->query($query)){
+			 while ($row = $re->fetch_assoc()) {
+
+
 		    echo '<article class="search-result row">
 				  <div class="col-xs-12 col-sm-12 col-md-3">
 				  <class="thumbnail"><img src="../' . $row['img'] .'"/></a></div>
