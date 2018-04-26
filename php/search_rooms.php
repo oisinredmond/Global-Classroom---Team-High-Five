@@ -58,7 +58,38 @@ if (!$dbConnect) {
 	<section class="col-xs-12 col-sm-6 col-md-12">
 	    <?php
 
-		
+		$servername = "mysql.hostinger.kr";
+$database = "u375181454_hotel";
+$username = "u375181454_juhee";
+$password = "dst1738";
+// Create connection
+$dbConnect = mysqli_connect($servername, $username, $password, $database);
+// Check connection
+if (!$dbConnect) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+	if(isset($_POST['quantityAdults'])){
+		$quantityAdults = $_POST['quantityAdults'];
+	}
+	
+	if(isset($_POST['quantityChildren'])){
+		$quantityChildren = $_POST['quantityChildren'];
+	}
+	
+	if(isset($_POST['checkin'])){
+		$checkin = $_POST['checkin'];
+	}
+	
+	if(isset($_POST['checkout'])){
+		$checkout = $_POST['checkout'];
+	}
+
+	$_SESSION['checkout'] = date('y-m-d', strtotime($_POST['checkout']));
+	$_SESSION['checkin'] = date('y-m-d', strtotime($_POST['checkin']));
+
+
+
 	$datestart =  date('y-m-d', strtotime($_SESSION['checkin']));
 	$dateend =  date('y-m-d', strtotime($_SESSION['checkout']));
 	$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
