@@ -1,7 +1,7 @@
 <?php
 session_start();
 include  "auth.php";
-$sql = "SELECT * FROM Staff where S_Name = '".$_SESSION['username']."'  AND Password = '".$_SESSION['password']."' ";
+$sql = "SELECT * FROM staff where S_Name = '".$_SESSION['username']."'  AND Password = '".$_SESSION['password']."' ";
 $res = $dbConnect->query($sql);
 
   $row = $res->fetch_array(MYSQLI_ASSOC);
