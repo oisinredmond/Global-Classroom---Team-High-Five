@@ -48,7 +48,7 @@ if (!$dbConnect) {
 					$_SESSION['checkin'] = date('y-m-d', strtotime($_POST['checkin']));
 					$datestart =  date('y-m-d', strtotime($_SESSION['checkin']));
 					$dateend =  date('y-m-d', strtotime($_SESSION['checkout']));
-					$query = "SELECT * FROM Rooms WHERE room_id NOT IN (
+					$query = "SELECT * FROM rooms WHERE room_id NOT IN (
 							SELECT room_id FROM bookings
 							where (check_in between '$datestart' AND '$dateend')OR
 						(check_out between '$dateend' AND '$datestart'))";
