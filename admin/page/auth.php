@@ -1,8 +1,8 @@
 
 <?php
 $servername = "mysql.hostinger.kr";
-$database = "u375181454_tempp";
-$username = "u375181454_tempp";
+$database = "u375181454_hotel";
+$username = "u375181454_juhee";
 $password = "dst1738";
 // Create connection
 $dbConnect = mysqli_connect($servername, $username, $password, $database);
@@ -10,7 +10,7 @@ $dbConnect = mysqli_connect($servername, $username, $password, $database);
 if (!$dbConnect) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$db = "u375181454_tempp";
+$db = "u375181454_hotel";
 $selected = mysqli_select_db($dbConnect,$db)
   or die("Could not select database");
 ?>
