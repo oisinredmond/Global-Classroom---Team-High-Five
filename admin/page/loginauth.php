@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link  = mysqli_connect("sql151.main-hosting.eu","u375181454_juhee", "dst1738", "u375181454_hotel");
+$link  = mysqli_connect("	mysql.hostinger.kr","u375181454_juhee", "dst1738", "u375181454_hotel");
 $_SESSION['username'] = $_POST['username'];
 $_SESSION['password'] =  $_POST['password'];
 include './auth.php';
