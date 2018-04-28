@@ -1,129 +1,117 @@
 <?php
-
-# 테스트 서버
-
-$pp_hostname = "www.sandbox.paypal.com";
-
-$auth_token = "access_token$sandbox$nfpwnh4q4wc3vgj6$b5a1b56e418c3a9f64d0b9c59be8da43";
-
-
-
-# 상용 서버
-
-// $pp_hostname = "www.paypal.com";
-
-// $auth_token = "Yxbn0IuUwYjrXPUZL4M.....................LaUcVpk4cgcSsy3yiC";
-
-
-
-$req = 'cmd=_notify-synch';
-
-$tx_token = $_REQUEST['tx'];
-
-$req .= "&tx=$tx_token&at=$auth_token";
-
-
-
-# 수신한 tx 값과 token 값을 paypal 서버로 전송
-
-$ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL, "https://$pp_hostname/cgi-bin/webscr");
-
-curl_setopt($ch, CURLOPT_POST, 1);
-
-curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-
-curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
-
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-
-curl_setopt($ch, CURLOPT_HTTPHEADER, array("Host: $pp_hostname"));
-
-$res = curl_exec($ch);
-
-curl_close($ch);
-
-
-
-# 최종 결과값 분석
-
-if(!$res){
-
-//HTTP ERROR
-
-echo "Paypal 서버 연동 오류가 발생했습니다.";
-
-exit;
-
-}else{
-
- // 결과값을 로그로 기록해 보기
-
-	$date_time = date("Y-m-d H:i:s");
-
-	$fp = fopen("pp_log.txt", "a");
-
-	fwrite($fp, "\n[".$date_time."]==========================================\n");
-
-
-
-	$lines = explode("\n", $res);
-
-	$keyarray = array();
-
-	if (strcmp ($lines[0], "SUCCESS") == 0) {
-
-   // 결제가 성공한 경우
-
-		for ($i=1; $i<count($lines);$i++){
-
-			list($key,$val) = explode("=", $lines[$i]);
-
-			$keyarray[urldecode($key)] = urldecode($val);
-
-			fwrite($fp, urldecode($key).":".urldecode($val)."\n");
+include './auth.php';
+		$email = "";
+		$fname = "";
+		$lname = "";
+		$total = "";
+		$deposit = "";
+		$bal = "";
+$id = $_POST['custom'];
+if(isset($id) && !empty($id)){
+$r = mysql_query("UPDATE  `booking` SET  `payment_status` =  'confirmed' WHERE  `booking`.`booking_id` = ".$id.";");
+echo mysql_error();
+$result = mysql_query("select * from booking where booking_id = '".$id."';");
+if(mysql_num_rows($result) > 0)
+	{
+		while($row = mysql_fetch_array($result))
+		{
+		$email = $row['email'];
+		$fname = $row['first_name'];
+		$lname = $row['last_name'];
+		$total = $row['total_amount'];
+		$deposit = $row['deposit'];
+		$bal = $row['total_amount']-$row['deposit'];
 
 		}
-
-		$firstname = $keyarray['first_name'];
-
-		$lastname = $keyarray['last_name'];
-
-		$itemnumber = $keyarray['item_number'];
-
-		$itemname = $keyarray['item_name'];
-
-		$amount = $keyarray['payment_gross'];
-
-
-
-		echo ("<p><h3>결제가 잘 처리되었습니다!</h3></p>");
-
-		echo ("<b>상세 내용</b><br>\n");
-
-		echo ("<li>이름: $firstname $lastname</li>\n");
-
-		echo ("<li>주문번호: $itemnumber</li>\n");
-
-		echo ("<li>상품명: $itemname</li>\n");
-
-		echo ("<li>금액: $amount</li>\n");
-
-
-
-	} else if (strcmp ($lines[0], "FAIL") == 0) {
-
-    // 결제가 실패한 경우
-
-		echo ("<p><h3>결제오류가 발생했습니다!</h3></p>");
-
 	}
 
-	fclose($fp);
+
 
 }
 
+			$subject = "Deposit Amount Received";
+			$message ="<html>";
+			$message .="<body>\n";
+			$message .="<table class=\"body-wrap\">\n";
+			$message .="	<tr>\n";
+			$message .="		<td></td>\n";
+			$message .="		<td class=\"container\" width=\"600\">\n";
+			$message .="			<div class=\"content\">\n";
+			$message .="				<table class=\"main\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n";
+			$message .="					<tr>\n";
+			$message .="						<td class=\"content-wrap aligncenter\">\n";
+			$message .="							<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n";
+			$message .="								<tr>\n";
+			$message .="									<td class=\"content-block\">\n";
+			$message .="										<h1>Your Deposit Payment Received!</h1>\n";
+			$message .="									</td>\n";
+			$message .="								</tr>\n";
+			$message .="								<tr>\n";
+			$message .="									<td class=\"content-block\">\n";
+			$message .="										<h2>Thanks for the payment.</h2>\n";
+			$message .="									</td>\n";
+			$message .="								</tr>\n";
+			$message .="								<tr>\n";
+			$message .="									<td class=\"content-block\">\n";
+			$message .="										<table class=\"invoice\">\n";
+			$message .="											<tr>\n";
+			$message .="												<td>Dear ".$fname." ".$lname."<br><br><b>Booking ID #".$id."</b><br><br></td>\n";
+			$message .="											</tr>\n";
+			$message .="											<tr>\n";
+			$message .="												<td>\n";
+			$message .="													<table class=\"invoice-items\" cellpadding=\"0\" cellspacing=\"0\">\n";
+			$message .="														<tr>\n";
+			$message .="															<td style=\"width:200px;\">Total</td>\n";
+			$message .="															<td  style=\"width:200px;\"> <b>RM".$total."</b></td>\n";
+			$message .="														</tr>\n";
+			$message .="														<tr>\n";
+			$message .="															<td style=\"width:200px;\">Deposit Paid</td>\n";
+			$message .="															<td  style=\"width:200px;\"><b>RM".$deposit."</b></td>\n";
+			$message .="														</tr>\n";
+			$message .="														<tr>\n";
+			$message .="															<td style=\"width:200px;\">Balance</td>\n";
+			$message .="															<td  style=\"width:200px;\"><b>RM".$bal."</b></td>\n";
+			$message .="														</tr>\n";;
+			$message .="														\n";
+			$message .="													</table>\n";
+			$message .="														<br><b><br>Remarks:</b>\n";
+			$message .="															<br>\n";
+			$message .="															<b>1. Please pay rest of the balance upon check in.</b><br>\n";
+			$message .="															<br>\n";
+			$message .="															\n";
+			$message .="												</td>\n";
+			$message .="											</tr>\n";
+			$message .="										</table>\n";
+			$message .="									</td>\n";
+			$message .="								</tr>\n";
+			$message .="								<tr>\n";
+			$message .="								</tr>\n";
+			$message .="								<tr>\n";
+			$message .="									<td>\n";
+			$message .="										<br><br>Hotel Address, Street Your address, 50450 Kuala Lumpur, Malaysia\n";
+			$message .="									</td>\n";
+			$message .="								</tr>\n";
+			$message .="							</table>\n";
+			$message .="						</td>\n";
+			$message .="					</tr>\n";
+			$message .="				</table>\n";
+			$message .="				<div class=\"footer\">\n";
+			$message .="					<table width=\"100%\">\n";
+			$message .="						<tr>\n";
+			$message .="							<td><br>Questions? Email <a href=\"mailto:\">info@hotel.com.my or Call Us at 0000000</a></td>\n";
+			$message .="						</tr>\n";
+			$message .="					</table>\n";
+			$message .="				</div></div>\n";
+			$message .="		</td>\n";
+			$message .="		<td></td>\n";
+			$message .="	</tr>\n";
+			$message .="</table></body></html>";
+			$message = wordwrap($message, 70);
+			$headers  ="From: khkim3261738@gmail.com";
+			$headers .= "MIME-Version: 1.0\r\n";
+			$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+			mail($email, $subject, $message, $headers);
+
+			header("location: successmessage.php");
 ?>
