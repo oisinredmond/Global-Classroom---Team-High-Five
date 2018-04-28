@@ -4,7 +4,7 @@
 
 $pp_hostname = "www.sandbox.paypal.com";
 
-$auth_token = "AbEz2jyoK129.TFHWrNNI3IEaUeQAObVtneXgRYw7ExLz7vgtwvhrqou";
+$auth_token = "access_token$sandbox$nfpwnh4q4wc3vgj6$b5a1b56e418c3a9f64d0b9c59be8da43";
 
 
 
