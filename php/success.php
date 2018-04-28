@@ -64,7 +64,7 @@ exit;
 
 	$date_time = date("Y-m-d H:i:s");
 
-	$fp = fopen("./tmp/pp_log.txt", "a");
+	$fp = fopen("pp_log.txt", "a");
 
 	fwrite($fp, "\n[".$date_time."]==========================================\n");
 
