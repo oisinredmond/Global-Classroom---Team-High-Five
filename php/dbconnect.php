@@ -17,6 +17,7 @@ $password = "HHAdmin?";
 $dbConnect = mysqli_connect($servername, $username, $password, $database);
 // Check connection
 if (!$dbConnect) {
+	header("location:http://localhost/Global-Classroom-Team-High-Five/SQLerror.html");
     die("Connection failed: " . mysqli_connect_error());
 }
 echo "Connected successfully";
