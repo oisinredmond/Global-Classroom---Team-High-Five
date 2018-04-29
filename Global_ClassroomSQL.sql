@@ -6,7 +6,7 @@ CREATE Table Users(
 	UName VARCHAR(20) UNIQUE,
 	Password VARCHAR(20) NOT NULL,
 	Phone VARCHAR(10),
-	Email VARCHAR(20) UNIQUE check(Email LIKE "%@%"),
+	Email VARCHAR(40) UNIQUE check(Email LIKE "%@%"),
 	IsTemp VARCHAR(2) NOT NULL,
 	PRIMARY Key(User_id)
 
