@@ -111,7 +111,7 @@ function fnSearch()
 
 			<li class="active"><a href="room.php"><i class="icon-key"></i> Rooms</a></li>
 
-			<li><a href="http://www.hotel.gamboh.com.my"><i class="icon-share"></i> Booking Page</a></li>
+			<li><a href="http://juuheeeee950625/Global-Classroom-Team-High-Five/main.php"><i class="icon-share"></i> Booking Page</a></li>
           </ul>
 
         </div>
