@@ -2,12 +2,43 @@
 
 	<head>
 		<?php 
-			$ID = "'BJ7689'";
+			session_start();
+			/*
+			Code to use sessions with system rather than sample
+			$ID = $_SESSION['username'];
+			$select = "select UName,Phone,Email from USERS where User_id = ".$ID;
+			*/
+			
+			$ID = "'BJ76'";
 			$select = "select UName,Phone,Email from USERS where User_id = ".$ID;
 			$stmt = $dbConnect->query($select) or die($dbConnect->error);
 			$row = $stmt->fetch_assoc();
 			
 		?>
+		
+		<script language="JavaScript" type="text/javascript">
+				function restyle(x)
+				{
+					x.style.backgroundColor = "#f2efef";
+					x.innerHTML = "<a href='Change_"+x.id+".php'>Change "+x.id+"</a>";
+					
+				}
+				
+				function reset(x)
+				{
+					x.style.backgroundColor = "white";
+					if( x.id == "Phone")
+					{
+						x.innerHTML = <?php echo $row["Phone"]; ?>;
+					
+					}
+					else
+					{
+						x.innerHTML = "placeholder";
+					}
+				}
+		</script>
+		
 	</head>
 	<body>
 		<div id = "booking_div">
@@ -20,7 +51,7 @@
 				<td>
 					Username
 				</td>
-				<td>
+				<td id = "uname" onmouseenter="restyle(this)" onmouseleave="reset(this)">
 					<?php 
 						if(empty($row)){
 							header("Location:http://localhost/Global-Classroom-Team-High-Five/main.php");
@@ -35,7 +66,7 @@
 				<td>
 					password
 				</td>
-				<td>
+				<td id = "pass" onmouseenter="restyle(this)" onmouseleave="reset(this)">
 					****
 				</td>
 			</tr>
@@ -50,7 +81,7 @@
 				<td>
 					Phone
 				</td>
-				<td>
+				<td id = "Phone" onmouseenter="restyle(this)" onmouseleave="reset(this)">
 					<?php echo $row['Phone']; ?>
 				</td>
 			</tr>
@@ -59,7 +90,7 @@
 					Email
 				</td>
 					
-				<td>
+				<td id = "Email" onmouseenter="restyle(this)" onmouseleave="reset(this)">
 					<?php echo $row['Email']; ?>
 				</td>
 			</tr>
