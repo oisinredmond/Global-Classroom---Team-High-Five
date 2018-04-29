@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include 'dbConnect.php'; ?>
+<?php include 'php/dbConnect.php'; ?>
 <html>
     <head>
         <meta charset="utf-8">
