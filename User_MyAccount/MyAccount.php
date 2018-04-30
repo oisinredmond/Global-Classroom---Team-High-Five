@@ -1,4 +1,4 @@
-<?php include 'php/dbConnect.php'; ?>
+<?php include '../php/dbConnect.php'; ?>
 
 	<head>
 		<?php 
@@ -31,11 +31,14 @@
 					{
 						x.innerHTML = <?php echo $row["Phone"]; ?>;
 					
-					}
-					else
+					}else if(x.id == "Email"){
+						
+						x.innerHTML = <?php echo "'" . $row["Email"] . "'";?>;
+					}else if(x.id == "uname")
 					{
-						x.innerHTML = "placeholder";
+						x.innerHTML = <?php echo "'" . $row["UName"] . "'";?>;
 					}
+					
 				}
 		</script>
 		
