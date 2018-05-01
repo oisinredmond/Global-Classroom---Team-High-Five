@@ -1,6 +1,7 @@
 <?php include '../php/dbConnect.php'; ?>
 
 	<head>
+		<link rel="stylesheet" href="../css/main.css">
 		<?php 
 			session_start();
 			/*
@@ -10,10 +11,12 @@
 			*/
 			
 			$ID = "'BJ76'";
-			$select = "select UName,Phone,Email from USERS where User_id = ".$ID;
-			$stmt = $dbConnect->query($select) or die($dbConnect->error);
-			$row = $stmt->fetch_assoc();
-			
+			$userDataselect = "select UName,Phone,Email from USERS where User_id = ".$ID;
+			$userBookingselect = "select Booking_id,Booking_date,Check_in,Check_out,Total_Cost,deposit from Booking where User_id = ".$ID;
+			$stmt1 = $dbConnect->query($userDataselect) or die($dbConnect->error);
+			$row = $stmt1->fetch_assoc();
+			$stmt2 = $dbConnect->query($userBookingselect) or die($dbConnect->error);
+			$row2 = $stmt2->fetch_assoc();
 		?>
 		
 		<script language="JavaScript" type="text/javascript">
@@ -37,7 +40,12 @@
 					}else if(x.id == "uname")
 					{
 						x.innerHTML = <?php echo "'" . $row["UName"] . "'";?>;
+					}else{
+						
+						x.innerHTML = "****";
+						
 					}
+					
 					
 				}
 		</script>

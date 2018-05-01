@@ -55,19 +55,19 @@ CREATE TABLE BOOKING(
 	Notes VARCHAR(50),
 	User_id VARCHAR(6),
 	Total_Cost DECIMAL(6,2),
-	deposit DEC(6,2)
-	Payment_Type VARCHAR(10) check Payment_Type in("Card","Cash","Online"),
-	Payment_Status VARCHAR(10) check Payment_Status in("paid","unpaid"),
+	deposit DECIMAL(6,2),
+	Payment_Type VARCHAR(10) check(Payment_Type in("Card","Cash","Online")),
+	Payment_Status VARCHAR(10) check(Payment_Status in("paid","unpaid")),
 	primary key(Booking_id)
 );
 
 CREATE TABLE BILLING (
 	Transaction_id VARCHAR(6),
 	Payment_date VARCHAR(10),
-	Amt DEC(5,2),
+	Amt DECIMAL(5,2),
 	Booking_id VARCHAR(6),
 	Staff_id VARCHAR(6) NOT NULL,
-	User_id VARCHAR(6) NOT NULL
+	User_id VARCHAR(6) NOT NULL,
 	primary key(Transaction_id),
 	foreign key(Booking_id) references BOOKING(Booking_id),
 	foreign key(Staff_id) references STAFF(Staff_id),
@@ -86,7 +86,7 @@ CREATE TABLE ATTRACTIONS(
 	IMGlink varchar(50) check(IMGlink IN("%.jpg","%.gif","%.mpg","%.png")),
 	Name varchar(50),
 	Address varchar(50),
-	Url Varchar(50) UNIQUE check URL like "http://%",
+	Url Varchar(50) UNIQUE check(URL like "http://%"),
 	Primary Key(AttractionID)
 	
 );

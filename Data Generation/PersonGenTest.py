@@ -36,3 +36,4 @@ for x in range(0,520):
     statement = "INSERT INTO Users(User_id,UName,Password,Phone,Email,IsTemp) VALUES("+"'"+UID+"'"+","+"'"+Uname+"'"+","+"'"+hp.hexdigest()+"'"+","+"'"+phone+"'"+","+"'"+email+"'"+","+"'"+"N"+"'"+");"
     print(statement)
     data.write(statement+"\n")
+    
