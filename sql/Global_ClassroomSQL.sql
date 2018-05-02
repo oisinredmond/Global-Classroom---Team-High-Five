@@ -25,6 +25,7 @@ CREATE TABLE Rooms(
 	Occupancy VARCHAR(2) check(Occupancy LIKE "Y" or Occupancy like "N"),
 	Room_Size VARCHAR(10) check(Room_Size IN("Single","Deluxe","King Suite")),
 	Description VARCHAR(100),
+	Room_Num INTEGER(3),
 	Room_name VARCHAR(20),
 	Rate DECIMAL(4,2),
 	img VARCHAR(50) check(img IN("%.jpg","%.gif","%.mpg","%.png")),

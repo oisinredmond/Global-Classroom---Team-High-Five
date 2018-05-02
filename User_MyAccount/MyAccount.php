@@ -9,14 +9,13 @@
 			$ID = $_SESSION['username'];
 			$select = "select UName,Phone,Email from USERS where User_id = ".$ID;
 			*/
-			
+			$count = 0;
 			$ID = "'BJ76'";
 			$userDataselect = "select UName,Phone,Email from USERS where User_id = ".$ID;
-			$userBookingselect = "select Booking_id,Booking_date,Check_in,Check_out,Total_Cost,deposit from Booking where User_id = ".$ID;
+			$userBookingselect = "select Booking_id,Booking_date,Check_in,Check_out,Total_Cost,deposit,Payment_Status from Booking where User_id = ".$ID;
 			$stmt1 = $dbConnect->query($userDataselect) or die($dbConnect->error);
 			$row = $stmt1->fetch_assoc();
 			$stmt2 = $dbConnect->query($userBookingselect) or die($dbConnect->error);
-			$row2 = $stmt2->fetch_assoc();
 		?>
 		
 		<script language="JavaScript" type="text/javascript">
@@ -48,13 +47,47 @@
 					
 					
 				}
+				
+				function Redirect(x)
+				{
+					console.log(x.id);
+					console.log(x.firstChild.innerHTML);
+				}
 		</script>
 		
 	</head>
 	<body>
 		<div id = "booking_div">
 			<table id ="Booking_info">
-			<table>
+				<tr id = booking_headers>
+					<th>Booking Reference</th>
+					<th>booking Date</th>
+					<th>Check in</th>
+					<th>Check out</th>
+					<th>price</th>
+					<th>Deposit</th>
+					<th>Payment Status</th>
+				</tr>
+					<?php 
+						
+						while($row2 = $stmt2->fetch_assoc())
+						{
+							$count++;
+							echo "<tr id = ".$count." onclick = 'Redirect(this)'>";
+							echo "<td>".$row2['Booking_id']."</td>";
+							echo "<td>".$row2['Booking_date']."</td>";
+							echo "<td>".$row2['Check_in']."</td>";
+							echo "<td>".$row2['Check_out']."</td>";
+							echo "<td>".$row2['Total_Cost']."</td>";
+							echo "<td>".$row2['deposit']."</td>"; 
+							echo "<td>".$row2['Payment_Status']."</td>";
+							echo "</tr>";
+						}
+					
+					
+					?>
+					
+			</table>
 		</div>
 		<div id = "personal_details_div">
 			<table id = "personal Details">

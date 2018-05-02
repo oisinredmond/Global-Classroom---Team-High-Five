@@ -15,7 +15,7 @@ for x in range(0,150):
     room = types[j]
     roomNum = (x%20)+1
     floor = int(x/20)*100
-    name = room+"-"+ str(floor+roomNum)
-    statement = "INSERT INTO ROOMS(Room_id,Occupancy,Room_Size,Description,Room_name,Rate,img,Price) VALUES("+"'"+Roomid+"'"+","+"'"+"N"+"'"+","+"'"+room+"'"+","+"'"+desc[j]+"'"+","+"'"+name+"'"+","+"1.0,"+"'"+"temp.png"+"'"+","+str(Price[j])+");"
+    name = "room "+ str(floor+roomNum)+" Type:"+room
+    statement = "INSERT INTO ROOMS(Room_id,Occupancy,Room_Size,Description,Room_num,Room_name,Rate,img,Price) VALUES("+"'"+Roomid+"'"+","+"'"+"N"+"'"+","+"'"+room+"'"+","+"'"+desc[j]+"'"+","+str(floor+roomNum)+","+"'"+name+"'"+","+"1.0,"+"'"+"temp.png"+"'"+","+str(Price[j])+");"
     print(statement)
     data.write(statement+"\n")
