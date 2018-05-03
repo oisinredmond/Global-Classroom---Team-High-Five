@@ -77,6 +77,6 @@ if (!$dbConnect) {
 		}
 	}
 	
-	$query = "SELECT * FROM Booking WHERE Booking_id = '" . $_SESSION['booking_id'];
+	$query = "SELECT * FROM booking WHERE Booking_id = '" . $_SESSION['booking_id'];
 	$result = mysqli_query($dbConnect,$query);
 ?>
