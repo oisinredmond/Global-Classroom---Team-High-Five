@@ -46,7 +46,7 @@ if (!$dbConnect) {
 	
 	$stmt1 = "INSERT INTO Users VALUES('$user_id','$uname','$pword','$phone','$email','N')";
 	$stmt2 = "INSERT INTO Address(Line_1,Line_2,city,Ad_State,Post_code,Country,UserId) VALUES('$street1','$street2','$city','temp','$post','IRL','$user_id')";
-	$stmt3 = "INSERT INTO Bookings(Booking_id,Booking_date,Total_adults,Total_children,Check_in,Check_out,User_id,Total_cost) VALUES('" . $_SESSION['booking_id'] . "','$timestamp','$adults','$children','$checkin','$checkout','$user_id','$total_price')";
+	$stmt3 = "INSERT INTO bookings(Booking_id,Booking_date,Total_adults,Total_children,Check_in,Check_out,User_id,Total_cost) VALUES('" . $_SESSION['booking_id'] . "','$timestamp','$adults','$children','$checkin','$checkout','$user_id','$total_price')";
 	
 	
 	
@@ -70,7 +70,7 @@ if (!$dbConnect) {
 	
 	foreach($_SESSION['selected_rooms'] as $room){
 		$room_id = $room[1];
-		if($dbConnect->query("INSERT INTO Booking_item VALUES('" . $_SESSION['booking_id'] . "','$room_id')")==TRUE) {
+		if($dbConnect->query("INSERT INTO booking_item VALUES('" . $_SESSION['booking_id'] . "','$room_id')")==TRUE) {
 			echo "Booking item entry created successfully</br>";
 		}else {
 			echo "</br>Error: " . $dbConnect->error;
