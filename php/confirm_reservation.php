@@ -46,7 +46,7 @@ if (!$dbConnect) {
 	
 	$stmt1 = "INSERT INTO Users VALUES('$user_id','$uname','$pword','$phone','$email','N')";
 	$stmt2 = "INSERT INTO Address(Line_1,Line_2,city,Ad_State,Post_code,Country,UserId) VALUES('$street1','$street2','$city','temp','$post','IRL','$user_id')";
-	$stmt3 = "INSERT INTO Booking(Booking_id,Booking_date,Total_adults,Total_children,Check_in,Check_out,User_id,Total_cost) VALUES('" . $_SESSION['booking_id'] . "','$timestamp','$adults','$children','$checkin','$checkout','$user_id','$total_price')";
+	$stmt3 = "INSERT INTO Bookings(Booking_id,Booking_date,Total_adults,Total_children,Check_in,Check_out,User_id,Total_cost) VALUES('" . $_SESSION['booking_id'] . "','$timestamp','$adults','$children','$checkin','$checkout','$user_id','$total_price')";
 	
 	
 	
