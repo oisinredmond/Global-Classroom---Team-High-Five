@@ -22,7 +22,7 @@
 				function restyle(x)
 				{
 					x.style.backgroundColor = "#f2efef";
-					x.innerHTML = "<a href='Change_"+x.id+".php'>Change "+x.id+"</a>";
+					x.innerHTML = "<a href='Change_"+x.id+".html'>Change "+x.id+"</a>";
 					
 				}
 				
@@ -31,7 +31,7 @@
 					x.style.backgroundColor = "white";
 					if( x.id == "Phone")
 					{
-						x.innerHTML = <?php echo $row["Phone"]; ?>;
+						x.innerHTML = <?php echo "'" . $row["Phone"] . "'";?>;
 					
 					}else if(x.id == "Email"){
 						
@@ -61,8 +61,6 @@
 							// puts response into suggestion div
 							var c = document.getElementById('booking_div');
 							c.innerHTML = newReq.responseText;
-							console.log(newReq.responseText);
-							console.log("shit shoot bippity boot");
 							
 						}
 					};
@@ -73,7 +71,7 @@
 	</head>
 	<body>
 		<div id = "booking_div">
-		<h1 style ="color:Black";> Booking Info <h1>
+		<h1 color:"black"> Booking Info <h1>
 			<table id ="Booking_info">
 				<tr id = booking_headers>
 					<th>Booking Reference</th>
@@ -106,13 +104,13 @@
 			</table>
 		</div>
 		<div id = "personal_details_div">
-		<h1 style ="color:Black";> Personal Details </h1>
+		<h1 style ="color:Black"> Personal Details </h1>
 			<table id = "personal Details">
 			<tr>
 				<td>
 					Username
 				</td>
-				<td id = "uname" onmouseenter="restyle(this)" onmouseleave="reset(this)">
+				<td id = "uname">
 					<?php 
 						if(empty($row)){
 							header("Location:http://localhost/Global-Classroom-Team-High-Five/main.php");
