@@ -50,14 +50,30 @@
 				
 				function Redirect(x)
 				{
-					console.log(x.id);
-					console.log(x.firstChild.innerHTML);
+					
+
+					var id = x.firstChild.innerHTML;
+					var newReq = new XMLHttpRequest();
+					
+					newReq.open('GET','BookingBreakdown.php?data='+id,true);
+					newReq.onreadystatechange = function () { 
+						if (newReq.readyState === 4) {
+							// puts response into suggestion div
+							var c = document.getElementById('booking_div');
+							c.innerHTML = newReq.responseText;
+							console.log(newReq.responseText);
+							console.log("shit shoot bippity boot");
+							
+						}
+					};
+					newReq.send();
 				}
 		</script>
 		
 	</head>
 	<body>
 		<div id = "booking_div">
+		<h1 style ="color:Black";> Booking Info <h1>
 			<table id ="Booking_info">
 				<tr id = booking_headers>
 					<th>Booking Reference</th>
@@ -90,6 +106,7 @@
 			</table>
 		</div>
 		<div id = "personal_details_div">
+		<h1 style ="color:Black";> Personal Details </h1>
 			<table id = "personal Details">
 			<tr>
 				<td>
