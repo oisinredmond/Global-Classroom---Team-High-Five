@@ -1,6 +1,6 @@
 <?php
 session_start();
-$link = mysqli_connect("localhost", "root", "", "hotel");
+
 $_SESSION['username'] = $_POST['username'];
 $_SESSION['password'] =  $_POST['password'];
 
