@@ -60,6 +60,7 @@ echo("<script>location.href='main.html';</script>");
     else {
       echo "<script>alert(\"Try again....\");
 mysqli_error($dbConnect);
+  history.back();
       </script>";
     }
 
