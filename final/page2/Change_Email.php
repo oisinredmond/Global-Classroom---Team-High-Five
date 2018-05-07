@@ -25,4 +25,6 @@ $name=$_SESSION['userID'];
 	} else {
 		echo "Error updating record: " . $conn->error;
 	}
+	
+	header("location:MyAccount.php");
  ?>

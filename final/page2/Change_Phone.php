@@ -31,4 +31,6 @@ $name=$_SESSION['userID'];
 	echo $_REQUEST['Phone'];
     $sql = "UPDATE users SET Phone="."'".$_REQUEST["Phone"]."'"." WHERE UName="."'".$Uname."'";
 	$dbConnect->query($sql);
+	
+	header("location:MyAccount.php");
  ?>
