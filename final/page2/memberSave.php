@@ -5,7 +5,6 @@ session_start();
 
 
  include_once ("./basic.php");
-$link = mysqli_connect("localhost", "root", "", "hotel");
 
 include './auth.php';
 
