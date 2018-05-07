@@ -59,7 +59,7 @@ echo("<script>location.href='main.html';</script>");
     }
     else {
       echo "<script>alert(\"Try again....\");
-      history.back();
+mysqli_error($dbConnect);
       </script>";
     }
 
