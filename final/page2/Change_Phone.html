@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<script>
+			function Test()
+			{
+				var x = document.getElementById("P1");
+				var y = document.getElementById("P2");
+				var z = document.getElementById("error");
+				console.log(x.value);
+				console.log(y.value);
+
+				if(x.value != y.value)
+				{
+					error.innerHTML = "Numbers do not match";
+					return false;
+				}
+				else
+				{
+					error.innerHTML = "";
+					return true;
+				}
+
+			}
+
+			function validate()
+			{
+				var x = document.getElementById("P1");
+				var y = document.getElementById("P2");
+				var z = document.getElementById("error");
+				console.log(x.value);
+				console.log(y.value);
+
+				if(x.value != y.value)
+				{
+					event.preventDefault()
+					return false;
+
+				}
+				else
+				{
+					return true;
+				}
+
+			}
+		</script>
+	</head>
+	<body>
+		<p id="error">
+		</p>
+		<form action ="Change_Phone.php" method="POST"  onsubmit="validate()">
+			Enter New Phone Number: <input type="text" name ="Phone" id = "P1"></input>
+			Confirm New Phone Number: <input type="text" name="Phone_Confirm" id= "P2" onblur="Test()"></input>
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>
