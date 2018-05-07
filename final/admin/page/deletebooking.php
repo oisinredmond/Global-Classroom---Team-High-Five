@@ -23,10 +23,12 @@ $result = mysqli_query($dbConnect,$sql);
 $sql = "DELETE FROM booking_item WHERE booking_id=".$id."";
 $result = mysqli_query($dbConnect,$sql);
 
-$sql = "DELETE FROM bookings WHERE booking_id=".$id."";
-$result = mysqli_query($dbConnect,$sql);
-$sql = "DELETE FROM room_book WHERE booking_id=".$id."";
-$result = mysqli_query($dbConnect,$sql);
+$sql1 = "DELETE FROM bookings WHERE booking_id=".$id."";
+$result = mysqli_query($dbConnect,$sql1);
+$sql2 = "DELETE FROM booking_item WHERE booking_id=".$id."";
+$result = mysqli_query($dbConnect,$sql2);
+$sql3 = "DELETE FROM room_book WHERE booking_id=".$id."";
+$result = mysqli_query($dbConnect,$sql3);
 header('Refresh: 2;url=dashboard.php');
 echo "<!DOCTYPE html>\n";
 echo "<html lang=\"en\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n";
