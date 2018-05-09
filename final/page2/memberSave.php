@@ -57,7 +57,7 @@ $memberPw2 = $_POST['password_a'];
 
 
       </script>";
-header("location: main.html");
+echo("<script>location.href='main.html';</script>");
     }
     else {
       echo "<script>alert(\"Try again....\");
