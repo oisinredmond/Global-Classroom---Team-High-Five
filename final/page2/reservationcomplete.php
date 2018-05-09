@@ -232,7 +232,7 @@ echo $_SESSION['booking_id'];
 
 					<input type="hidden" name="cmd" value="_xclick">
 					<input type="hidden" name="business" value="khkim1738-facilitator@naver.com">
-					<input type="hidden" name="return" value="http://juuheeeee950625.xyz/Global-Classroom-Team-High-Five/final/page2/successmessage.html">
+					
           	<input type="hidden" name="custom" value="<?php $_SESSION['booking_id'];?>">
             <input type="hidden" name="c_name" value="<?php $_SESSION['firstname'];?>">
           		<input type="hidden" name="item_name" value="15% Hotel Deposit Payment">
