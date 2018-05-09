@@ -3,7 +3,7 @@ session_start();
 
 
  include_once ("./basic.php");
-$link = mysqli_connect("localhost", "root", "", "hotel");
+
 
 include './auth.php';
 $re = mysqli_query($dbConnect,"SELECT * from users where User_id = '".$_SESSION['userID']."'  AND Password = '".$_SESSION['password']."' " );
