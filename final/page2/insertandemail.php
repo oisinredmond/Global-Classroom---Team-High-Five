@@ -2,7 +2,6 @@
 
 session_start();
 include './auth.php';
-$link = mysqli_connect("localhost", "root", "", "hotel");
 $re = mysqli_query($dbConnect,"SELECT * from users where User_id = '".$_SESSION['userID']."'  AND Password = '".$_SESSION['password']."' " );
 echo mysqli_error($dbConnect);
 echo $_SESSION['userID'];
