@@ -2,6 +2,7 @@
 
 session_start();
 
+
  include_once ("./basic.php");
 
 include './auth.php';
@@ -176,7 +177,7 @@ $_SESSION['childrens'] = $_POST["totalchildrens"];
 				$datestart =  date('y-m-d', strtotime($_SESSION['checkin_unformat']) );
 				$dateend =  date('y-m-d', strtotime($_SESSION['checkout_unformat']));
 
-				$result = mysqli_query($link, "SELECT r.room_id, (r.total_room-br.total) as availableroom from room as r LEFT JOIN (
+				$result = mysqli_query($dbConnect, "SELECT r.room_id, (r.total_room-br.total) as availableroom from room as r LEFT JOIN (
 
 										SELECT roombook.room_id, sum(roombook.totalroombook) as total from roombook where roombook.booking_id IN
 											(
@@ -194,7 +195,7 @@ $_SESSION['childrens'] = $_POST["totalchildrens"];
 										as br
 
 					 ON r.room_id = br.room_id");
-				echo mysqli_error($link);
+				echo mysqli_error($dbConnect);
 				if(mysqli_num_rows($result) > 0){
 					echo "<p><b>Choose Your Room</b></p><hr class=\"line\">";
 					print "				<form action=\"../page2/guestform.php\" method=\"post\">\n";
@@ -206,7 +207,7 @@ $_SESSION['childrens'] = $_POST["totalchildrens"];
 						if($row['availableroom'] != null && $row['availableroom'] > 0  )
 						{
 
-							$sub_result = mysqli_query($link,"select room.* from room where room.room_id = ".$row['room_id']." ");
+							$sub_result = mysqli_query($dbConnect,"select room.* from room where room.room_id = ".$row['room_id']." ");
 
 							if(mysqli_num_rows($sub_result) > 0)
 							{
@@ -258,7 +259,7 @@ $_SESSION['childrens'] = $_POST["totalchildrens"];
 							}
 						}
 						else if($row['availableroom'] == null ){
-							$sub_result2 = mysqli_query($link,"select room.* from room where room.room_id = ".$row['room_id']." ");
+							$sub_result2 = mysqli_query($dbConnect,"select room.* from room where room.room_id = ".$row['room_id']." ");
 							if(mysqli_num_rows($sub_result2) > 0)
 							{
 								while($sub_row2 = mysqli_fetch_array($sub_result2)){
