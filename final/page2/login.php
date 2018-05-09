@@ -2,7 +2,8 @@
 
 <!DOCTYPE html>
 <?php
-include_once("basic.php") ?>
+include_once("basic.php") ;
+include("auth.php");?>
 <html lang="en" >
 
 <head>
