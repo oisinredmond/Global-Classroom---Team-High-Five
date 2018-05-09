@@ -1,13 +1,12 @@
 <?php
-session_start();
-$dbConnect= mysqli_connect("localhost", "root", "", "hotel");
+session_start();include './auth.php';
 $_SESSION['userID'] = $_POST['username'];
 $_SESSION['password'] =  $_POST['password'];
 
 
 
 
-include './auth.php';
+
 $re = mysqli_query($dbConnect,"SELECT * from users where User_id = '".$_SESSION['userID']."'  AND Password = '".$_SESSION['password']."' " );
 echo mysqli_error($dbConnect);
 
