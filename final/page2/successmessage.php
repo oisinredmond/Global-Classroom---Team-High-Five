@@ -75,7 +75,7 @@ $mail->isSMTP();
 $mail->SMTPDebug = 2;
 
 //Ask for HTML-friendly debug output
-$mail->Debugoutput = 'html';
+$mail->Debugoutput = 'emailContents.php';
 
 //Set the hostname of the mail server
 $mail->Host = 'smtp.naver.com';
