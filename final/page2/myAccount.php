@@ -11,7 +11,6 @@ $re = mysqli_query($dbConnect,"SELECT * from users where User_id = '".$_SESSION[
 //}
 
 			$count = 0;
-			$ID = '".$_SESSION['userID']."';
 		$userDataselect = "SELECT UName,Phone,Email from users where user_id ='".$_SESSION['userID']."'";
 			$userBookingselect = "SELECT Booking_id,Booking_date,Check_in,Check_out,Total_Cost,deposit,Payment_Status from bookings where User_id = '".$_SESSION['userID']."'";
 			$stmt1 = $dbConnect->query($userDataselect) or die($dbConnect->error);
