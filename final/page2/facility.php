@@ -1,5 +1,5 @@
 <?php
-include_once("basic.php");
+
 ?>
 <html>
 	<head>
@@ -38,7 +38,78 @@ include_once("basic.php");
 
 	<body onload="slideA()">
 
+  <header>
+        <a href="main.html" id="logo">
+          <a href="index.php" title="juhee"><img class="site-logo"style="margin-left : 90px;max-height: 100px" src="//juuheeeee950625.xyz/wp-content/uploads/2018/04/hilton-logo-1.png" alt="juhee" /></a>
 
+        </a>
+
+        <div style=" float: right;margin-top : 20px;margin-right: 20px;"class="navbar">
+          <div class="dropdown">
+             <button class="dropbtn" onclick="location.href='about.html'">ABOUT
+             <i class="fa fa-caret-down"></i>
+             </button>
+         <div class="dropdown-content">
+              <a href = "about2.php">Dublin Hilton</a>
+             <a href = "qna.html">Q&A</a>
+         </div>
+      </div>
+          <div class="dropdown">
+             <button class="dropbtn" onclick="location.href='offer.php'">OFFERS
+             <i class="fa fa-caret-down"></i>
+             </button>
+         <div class="dropdown-content">
+              <a href = "roomInfo.php">Rooms</a>
+             <a href = "facility.php">Facility</a>
+         </div>
+      </div>
+      <div class="dropdown">
+         <button class="dropbtn">ATTRACTIONS
+         <i class="fa fa-caret-down"></i>
+         </button>
+      <div class="dropdown-content">
+          <a href = "travel.php">Travel Site</a>
+         <a href = "offer.php">Links</a>
+      </div>
+      </div>
+        <div class="dropdown">
+           <button class="dropbtn" onclick="location.href='login.php'">LOGINN
+</button>
+</div>
+
+</div>
+
+<style>
+
+            /* --- override the ninja-slider.css settings --- */
+    #ninja-slider {
+                padding: 0 0;
+            }
+
+            /* --- Show pause/play button --- */
+            #ninja-slider-pause-play {
+                display: block;
+                position: absolute;
+                top: auto;
+                bottom: 0;
+                width: 64px;
+                height: 64px;
+                display: inline-block;
+                background-image: url(img/navs.png);
+                left: 0;
+                background-position: 0 -128px;
+            }
+
+                #ninja-slider-pause-play.paused {
+                    background-position: -64px -128px;
+                }
+        </style>
+        <script>
+            nsOptions.aspectRatio = "auto";
+            nsOptions.effect = "fade";
+            nslider.reload();
+        </script>
+    </header>
 
 <div
         <div id='ninja-slider'>
