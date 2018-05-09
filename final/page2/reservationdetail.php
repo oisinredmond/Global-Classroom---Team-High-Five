@@ -2,7 +2,6 @@
 <?php
 
 session_start();
-$dbConnect = mysqli_connect("localhost", "root", "", "hotel");
  include_once ("./basic.php");
 $id= $_SESSION['booking_id'];
 
