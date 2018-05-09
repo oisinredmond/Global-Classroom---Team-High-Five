@@ -3,6 +3,7 @@
 
 session_start();
  include_once ("./basic.php");
+include("./auth.php");
 $id= $_SESSION['booking_id'];
 
 $result = mysqli_query($dbConnect,"select * from booking where booking_id = '".$id."';");
