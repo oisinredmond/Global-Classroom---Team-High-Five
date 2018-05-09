@@ -1,6 +1,6 @@
 <?php
 
-    include "../include/dbConnect.php";
+    include "./auth.php";
 
     $memberId = $_POST['userId'];
 
