@@ -50,14 +50,14 @@ $memberPw2 = $_POST['password_a'];
     $sql = "INSERT INTO users(u_id,User_id, Password, UName, Email, Phone) VALUES(null,'{$memberId}','{$memberPw}','{$memberName}','{$memberEmailAddress}','{$memberPhone}');";
 
     if($dbConnect->query($sql)){
-     header('Refresh: 0;url=main3.php');
+    
       echo "<script>alert(\"Now you are Hilton Hotel's member!\");
 
 
 
 
       </script>";
-
+header("location: main.html");
     }
     else {
       echo "<script>alert(\"Try again....\");
