@@ -195,7 +195,7 @@ margin: 0px;
 <li id="menu-item-90" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-88 current_page_item menu-item-has-children menu-item-90"><a href="//juuheeeee950625.xyz/attractions/">ATTRACTIONS</a>
 <ul class="sub-menu">
 	<li id="menu-item-86" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86"><a href="travel.php">Travel Site</a></li>
-	<li id="menu-item-87" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87"><a href="links.php">Links</a></li>
+	<li id="menu-item-87" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87"><a href="offer.html">Links</a></li>
 </ul>
 </li>
 <li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-19"><a href="login.php">Login</a>
