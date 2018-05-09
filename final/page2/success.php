@@ -109,5 +109,5 @@ if (!$mail->send()) {
 } else {
     echo "Message sent!";
 }
-			header("location: successmessage.html");
+			header("location: successmessage.php");
 ?>
