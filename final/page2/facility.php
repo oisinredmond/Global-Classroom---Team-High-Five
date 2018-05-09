@@ -38,7 +38,7 @@
 
 	<body onload="slideA()">
 
-  <header>
+  <header style="margin-top:0px">
         <a href="main.html" id="logo">
           <a href="index.php" title="juhee"><img class="site-logo"style="margin-left : 90px;max-height: 100px" src="//juuheeeee950625.xyz/wp-content/uploads/2018/04/hilton-logo-1.png" alt="juhee" /></a>
 
