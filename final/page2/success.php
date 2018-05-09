@@ -109,5 +109,5 @@ if (!$mail->send()) {
 } else {
     echo "Message sent!";
 }
-			header("location: http://juuheeeee950625.xyz/Global-Classroom-Team-High-Five/final/page2/successmessage.html");
+			header("location: successmessage.php");
 ?>
