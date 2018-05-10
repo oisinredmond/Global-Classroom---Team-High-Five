@@ -30,41 +30,78 @@
 </head>
 
 <body class="fontbody" style="overflow:scroll; background-image : url(https://exp.cdn-hotels.com/hotels/2000000/1200000/1194500/1194461/61b5b4c0_z.jpg);background-repeat: no-repeat;;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; " >
-	<nav  class="navbar navbar-default" role="navigation" style="margin-top :-10px;margin-left:-5px;magin-right:-100px ">
-	  <!-- Brand and toggle get grouped for better mobile display -->
-	  <div class="navbar-header">
+	  <header>
+        <a href="main.html" id="logo">
+          <a href="index.php" title="juhee"><img class="site-logo"style="margin-left : 90px;max-height: 100px" src="//juuheeeee950625.xyz/wp-content/uploads/2018/04/hilton-logo-1.png" alt="juhee" /></a>
 
-	    <a class="navbar-brand" href="#" style="margin-top : 15px;  font-size: 1.5rem;">HOME</a>
-	  </div>
+        </a>
 
-	  <!-- Collect the nav links, forms, and other content for toggling -->
-	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color:#111751;width:1460px; magin-right:-100px">
-	    <ul class="nav navbar-nav" style="margin-top : 15px">
+        <div style=" float: right;margin-top : 20px;margin-right: 20px;"class="navbar">
+          <div class="dropdown">
+             <button class="dropbtn" onclick="location.href='about.html'">ABOUT
+             <i class="fa fa-caret-down"></i>
+             </button>
+         <div class="dropdown-content">
+              <a href = "about2.php">Dublin Hilton</a>
+             <a href = "qna.html">Q&A</a>
+         </div>
+      </div>
+          <div class="dropdown">
+             <button class="dropbtn" onclick="location.href='offer.php'">OFFERS
+             <i class="fa fa-caret-down"></i>
+             </button>
+         <div class="dropdown-content">
+              <a href = "roomInfo.php">Rooms</a>
+             <a href = "facility.php">Facility</a>
+         </div>
+      </div>
+      <div class="dropdown">
+         <button class="dropbtn">ATTRACTIONS
+         <i class="fa fa-caret-down"></i>
+         </button>
+      <div class="dropdown-content">
+          <a href = "travel.php">Travel Site</a>
+         <a href = "offer.php">Links</a>
+      </div>
+      </div>
+        <div class="dropdown">
+           <button class="dropbtn" onclick="location.href='login.php'">LOGINN
+</button>
+</div>
 
-	      <li ><a  href="#">ABOUT</a></li>
-	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">OFFERS<b class="caret"></b></a>
-	        <ul class="dropdown-menu">
-	          <li><a href="#" >Histroy</a></li>
-	          <li><a href="#">Room</a></li>
-	          <li><a href="#">Service</a></li>
-	          <li class="divider"></li>
-	          <li><a href="#">Links</a></li>
-	          <li class="divider"></li>
-	          <li><a href="#">Travel Site</a></li>
-	        </ul>
-	      </li>
-	      <li><a href="#">LOGIN</a></li>
+</div>
 
-	    </ul>
+<style>
 
-	    <ul class="nav navbar-nav navbar-right" style="magin-right:0px">
-	          <li ><a href="#" ><img src="http://hiltonsurfersparadise.com.au/app/themes/FoundationPress/assets/images/hilton-logo.png" height=40></a></li>
-	      <li><a href="#" style="margin-top : 15px">MyPage</a></li>
-	        <li><a href="#"> </a></li>
-	    </ul>
-	  </div><!-- /.navbar-collapse -->
-	</nav>
+            /* --- override the ninja-slider.css settings --- */
+    #ninja-slider {
+                padding: 0 0;
+            }
+
+            /* --- Show pause/play button --- */
+            #ninja-slider-pause-play {
+                display: block;
+                position: absolute;
+                top: auto;
+                bottom: 0;
+                width: 64px;
+                height: 64px;
+                display: inline-block;
+                background-image: url(img/navs.png);
+                left: 0;
+                background-position: 0 -128px;
+            }
+
+                #ninja-slider-pause-play.paused {
+                    background-position: -64px -128px;
+                }
+        </style>
+        <script>
+            nsOptions.aspectRatio = "auto";
+            nsOptions.effect = "fade";
+            nslider.reload();
+        </script>
+    </header>
 
 		</div>
 	</div>
