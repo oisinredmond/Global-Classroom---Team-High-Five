@@ -36,37 +36,7 @@
 
         </a>
 
-        <div style=" float: right;margin-top : 20px;margin-right: 20px;"class="navbar">
-          <div class="dropdown">
-             <button class="dropbtn" onclick="location.href='about.html'">ABOUT
-             <i class="fa fa-caret-down"></i>
-             </button>
-         <div class="dropdown-content">
-              <a href = "about2.php">Dublin Hilton</a>
-             <a href = "qna.html">Q&A</a>
-         </div>
-      </div>
-          <div class="dropdown">
-             <button class="dropbtn" onclick="location.href='offer.php'">OFFERS
-             <i class="fa fa-caret-down"></i>
-             </button>
-         <div class="dropdown-content">
-              <a href = "roomInfo.php">Rooms</a>
-             <a href = "facility.php">Facility</a>
-         </div>
-      </div>
-      <div class="dropdown">
-         <button class="dropbtn">ATTRACTIONS
-         <i class="fa fa-caret-down"></i>
-         </button>
-      <div class="dropdown-content">
-          <a href = "travel.php">Travel Site</a>
-         <a href = "offer.php">Links</a>
-      </div>
-      </div>
-        <div class="dropdown">
-           <button class="dropbtn" onclick="location.href='login.php'">LOGINN
-</button>
+
 </div>
 
 </div>
