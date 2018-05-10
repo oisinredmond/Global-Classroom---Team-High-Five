@@ -400,7 +400,7 @@ function more3()
       print "                  <td>".$row6['Total_Cost']."</td>\n";
       print "                  <td>".$row6['Deposit']."</td>\n";
       print "                  <td>".($row6['Total_Cost']-$row6['Deposit'])."</td>\n";
-      print "                  <td>".$row6['Payment_Status']."</td><td><a href=\"detail.php?booking=".$row6['Booking_id']."\"  \">More Details</a></td><td><a class=\"delete\" href=\"deletebooking.php?booking=".$row6['Booking_id']."\"  onclick=\"return confirm('Are you sure want to delete this?')\">Delete</a></td></tr>";
+      print "                  <td>".$row6['Payment_Status']."</td><td><a href=\"detail.php?booking=".$row6['booking_id']."\"  \">More Details</a></td><td><a class=\"delete\" href=\"deletebooking.php?booking=".$row6['Booking_id']."\"  onclick=\"return confirm('Are you sure want to delete this?')\">Delete</a></td></tr>";
 
 								}
 
