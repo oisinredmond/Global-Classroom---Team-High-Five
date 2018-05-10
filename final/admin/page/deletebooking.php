@@ -17,18 +17,18 @@ header("location: index.htm");
 
 $id = $_GET['booking'];
 $id=$_SESSION['booking_id'];
-
-$sql = "DELETE FROM booking WHERE booking_id=".$id."";
-$result = mysqli_query($dbConnect,$sql);
-$sql = "DELETE FROM booking_item WHERE booking_id=".$id."";
-$result = mysqli_query($dbConnect,$sql);
-
-$sql1 = "DELETE FROM bookings WHERE booking_id=".$id."";
-$result = mysqli_query($dbConnect,$sql1);
-$sql2 = "DELETE FROM booking_item WHERE booking_id=".$id."";
-$result = mysqli_query($dbConnect,$sql2);
+$sql1 = "DELETE FROM booking_item WHERE booking_id=".$id."";
+$result1 = mysqli_query($dbConnect,$sql);
 $sql3 = "DELETE FROM room_book WHERE booking_id=".$id."";
 $result = mysqli_query($dbConnect,$sql3);
+$sql2 = "DELETE FROM booking WHERE booking_id=".$id."";
+$result2 = mysqli_query($dbConnect,$sql);
+
+
+$sql4 = "DELETE FROM bookings WHERE booking_id=".$id."";
+$result4 = mysqli_query($dbConnect,$sql1);
+
+
 header('Refresh: 2;url=dashboard.php');
 echo "<!DOCTYPE html>\n";
 echo "<html lang=\"en\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n";
