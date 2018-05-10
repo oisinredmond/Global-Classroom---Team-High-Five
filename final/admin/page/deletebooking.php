@@ -2,7 +2,7 @@
 session_start();
 
 include './auth.php';
-$re = mysqli_query($dbConnect,"select * from staff where S_name = '".$_SESSION['username']."'  AND password = '".$_SESSION['password']."' " );
+$re = mysqli_query($dbConnect,"select * from staff where S_name = '".$_SESSION['username']."'  AND Password = '".$_SESSION['password']."' " );
 
 if(mysqli_num_rows($re) > 0)
 {
@@ -16,7 +16,6 @@ header("location: index.htm");
 }
 
 $id = $_GET['booking'];
-$id=$_SESSION['booking_id'];
 $sql1 = "DELETE FROM booking_item WHERE booking_id=".$id."";
 $result1 = mysqli_query($dbConnect,$sql);
 $sql3 = "DELETE FROM room_book WHERE booking_id=".$id."";
