@@ -15,17 +15,17 @@ session_destroy();
 header("location: index.htm");
 }
 
-$id = $_GET['booking'];
+$id = $_POST['booking'];
 $sql1 = "DELETE FROM booking_item WHERE booking_id=".$id."";
 $result1 = mysqli_query($dbConnect,$sql);
 $sql3 = "DELETE FROM room_book WHERE booking_id=".$id."";
-$result = mysqli_query($dbConnect,$sql3);
+$result3 = mysqli_query($dbConnect,$sql3);
 $sql2 = "DELETE FROM booking WHERE booking_id=".$id."";
-$result2 = mysqli_query($dbConnect,$sql);
+$result2 = mysqli_query($dbConnect,$sq2);
 
 
 $sql4 = "DELETE FROM bookings WHERE booking_id=".$id."";
-$result4 = mysqli_query($dbConnect,$sql1);
+$result4 = mysqli_query($dbConnect,$sql4);
 
 
 header('Refresh: 2;url=dashboard.php');
