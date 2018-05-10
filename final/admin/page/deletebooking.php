@@ -15,7 +15,7 @@ session_destroy();
 header("location: index.htm");
 }
 
-$id = $_POST['booking'];
+$id = $_SESSION['booking_id'];
 $sql1 = "DELETE FROM booking_item WHERE booking_id=".$id."";
 $result1 = mysqli_query($dbConnect,$sql);
 $sql3 = "DELETE FROM room_book WHERE booking_id=".$id."";
