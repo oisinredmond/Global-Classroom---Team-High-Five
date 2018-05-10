@@ -77,10 +77,10 @@ $mail->SMTPDebug = 2;
 $mail->Debugoutput = 'html';
 
 //Set the hostname of the mail server
-$mail->Host = 'smtp.naver.com';
+$mail->Host = 'mx1.hostinger.kr';
 
 //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-$mail->Port = 465;
+$mail->Port = 587;
 
 //Set the encryption system to use - ssl (deprecated) or tls
 
@@ -88,16 +88,16 @@ $mail->Port = 465;
 $mail->SMTPAuth = true;
 
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "khkim1744@naver.com";
+$mail->Username = "hilton@gogo.juuheeeee950625.xyz";
 
 //Password to use for SMTP authentication
-$mail->Password = "dst3261738";
+$mail->Password = "hilton";
 
 //Set who the message is to be sent from
-$mail->setFrom('khkim1744@naver.com', '보낸사람');
+$mail->setFrom('hilton@gogo.juuheeeee950625.xyz', '보낸사람');
 
 //Set an alternative reply-to address
-$mail->addReplyTo('khkim1744@naver.com', '보낸사람');
+$mail->addReplyTo('hilton@gogo.juuheeeee950625.xyz', '보낸사람');
 
 //Set who the message is to be sent to
 $mail->addAddress('khkim3261738@gmail.com', '받는사람');
