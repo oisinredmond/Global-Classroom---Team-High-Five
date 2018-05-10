@@ -39,6 +39,8 @@ echo $_SESSION['roomname'];
 
 								$_SESSION['ind_rate'][$count] = $row['rate']  * $_POST["qtyroom".$row['room_id'].""];
 								$_SESSION['total_amount'] =  ( $row['rate']  * $_POST["qtyroom".$row['room_id'].""] * $_SESSION['total_night'] ) + $_SESSION['total_amount'] ;
+								$_SESSION['Total_Cost'] =  ( $row['rate']  * $_POST["qtyroom".$row['room_id'].""] * $_SESSION['total_night'] ) + $_SESSION['total_amount'] ;
+								$_SESSION['Deposit'] = $_SESSION['Total_Cost'] * 0.15;
 								$_SESSION['deposit'] = $_SESSION['total_amount'] * 0.15;
 								$count = $count + 1;
 							}
